@@ -1,8 +1,11 @@
+import Dashboard from "./componentes/Dashboard";
 import Form from "./componentes/Form";
+
+
 function App() {
 
   return (
-      <div className="flex w-full h-screen">
+/*       <div className="flex w-full h-screen">
         <div className="w-full flex items-center justify-center lg:w-1/2">
           <Form />
         </div>       
@@ -11,6 +14,9 @@ function App() {
           <div className="w-full h-1/2 absolute bottom-0 bg-white/10 backdrop-blur-lg"/>
         </div>
       </div>
+ */
+          <Dashboard/>
+        
   );
 }
 
