@@ -11,7 +11,7 @@ export default function Dashboard () {
   return (
     <div className='min-h-screen grid grid-col-1 lg:grid-cols-6'>
       {/* Barra Lateral Izquierda */}
-      <div className={`fixed lg:static w-[60%] md:w-[40%] lg:w-full top-0 z-50 transition-all ${sidebar ? "-left-0":"-left-full"} h-full w-full overflow-y-scroll bg-slate-200 col-span-1 p-4`}>
+      <div className={`fixed border-e-2 border-gray-300 lg:static w-[60%] md:w-[40%] lg:w-full top-0 z-50 transition-all ${sidebar ? "-left-0":"-left-full"} h-full w-full overflow-y-scroll bg-slate-200 col-span-1 p-4`}>
           {/* Logo */}
         <div className='text-center p-6'>
           <h1 className='font-bold tracking-[4px] text-2xl font-serif'>Start Alarm</h1>
@@ -56,7 +56,7 @@ export default function Dashboard () {
         </div>
       </div>  
       {/* Boton devuelta a barra izquierda */}
-      <button className='block lg:hidden absolute bottom-2 right-2 bg-indigo-300 text-white rounded-full text-4xl p-3' 
+      <button className='block lg:hidden fixed bottom-2 right-2 bg-indigo-300 text-white rounded-full text-4xl p-3' 
       onClick={handleSidebar}>
         {sidebar ? <RiMenuUnfoldLine/> : <RiMenuFoldLine />}
         
@@ -91,7 +91,7 @@ export default function Dashboard () {
           </nav>
         </header>
         {/* Contenido */}
-        <div className="bg-gray-200 p-4">
+        <div className="bg-gray-200 p-4 ">
           {/* Titulo */}
           <div>
             <h1 className="text-3xl font-semibold pl-3 mb-20">Contenido</h1>
@@ -105,9 +105,43 @@ export default function Dashboard () {
             </p>
           </div>
           {/* Informacion de Fechas */}
-          <div className="bg-white py-20 px-10">
-            
-          </div>
+          <a href="/historial" className="flex flex-col md:flex-row border-2 border-transparent hover:border-indigo-400 bg-white mb-5 pl-4 rounded-2xl p-4 shadow-lg transition-all">
+            {/* Titulo y texto */}
+            <div className="w-full md:w-[80%]">
+              <h1 className="text-2xl font-semibold font-serif mb-4">Titulo</h1>            
+              <input className="bg-gray-100 p-4 w-[80%] rounded-xl mb-2" placeholder="Ingresa la información necesaria"></input>
+            </div>
+            {/* Fechas a la derecha */}
+            <div className="w-full md:w-[20%] flex flex-col items-end">
+              <h2 className="text-2xl text-gray-500 mb-4 ">17/04/2023</h2>
+              <p className="">Hace 2 días</p>
+            </div>
+          </a>
+          <a href="/historial" className="flex flex-col md:flex-row border-2 border-transparent hover:border-indigo-400 bg-white mb-5 pl-4 rounded-2xl p-4 shadow-lg transition-all">
+            {/* Titulo y texto */}
+            <div className="w-full md:w-[80%]">
+              <h1 className="text-2xl font-semibold font-serif mb-4">Titulo</h1>            
+              <input className="bg-gray-100 p-4 w-[80%] rounded-xl mb-2" placeholder="Ingresa la información necesaria"></input>
+            </div>
+            {/* Fechas a la derecha */}
+            <div className="w-full md:w-[20%] flex flex-col items-end">
+              <h2 className="text-2xl text-gray-500 mb-4 ">17/04/2023</h2>
+              <p className="">Hace 2 días</p>
+            </div>
+          </a>
+          <a href="/historial" className="flex flex-col md:flex-row border-2 border-transparent hover:border-indigo-400 bg-white mb-5 pl-4 rounded-2xl p-4 shadow-lg transition-all">
+            {/* Titulo y texto */}
+            <div className="w-full md:w-[80%]">
+              <h1 className="text-2xl font-semibold font-serif mb-4">Titulo</h1>            
+              <input className="bg-gray-100 p-4 w-[80%] rounded-xl mb-2" placeholder="Ingresa la información necesaria"></input>
+            </div>
+            {/* Fechas a la derecha */}
+            <div className="w-full md:w-[20%] flex flex-col items-end">
+              <h2 className="text-2xl text-gray-500 mb-4 ">17/04/2023</h2>
+              <p className="">Hace 2 días</p>
+            </div>
+          </a>
+
         </div>
       </div>
     </div>
