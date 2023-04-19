@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { RiQrScan2Fill, RiUser6Fill, RiLogoutBoxLine, RiChatHistoryFill, RiWindyFill, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill } from "react-icons/ri";
+import { RiQrScan2Fill, RiUser6Fill, RiLogoutBoxLine, RiChatHistoryFill, RiWindyFill, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
 
 export default function Dashboard () {
 
@@ -41,22 +41,24 @@ export default function Dashboard () {
                   Historial
                 </a>
               </li>
-            </ul>
-          </nav>
-          {/* Imagen */}
-          <div className='flex flex-col'>
-            <img src='/imagenes/ImagenDashboard.svg' alt="Imagen"/>
-            <a href='/form' className='flex items-center gap-2 hover:bg-indigo-300 transition-colors mt-5 p-3 font-semibold hover:text-white rounded-lg text-lg text-gray-700'>
+              <li>
+              <a href='/form' className='flex items-center gap-2 hover:bg-indigo-300 transition-colors mt-5 p-3 font-semibold hover:text-white rounded-lg text-lg text-gray-700'>
                   <RiLogoutBoxLine />
                   Salir
                 </a>
-          </div>
+              </li>
+            </ul>
+          </nav>
+          {/* Imagen */}
+          {/* <div className='flex flex-col'>
+            <img src='/imagenes/ImagenDashboard.svg' alt="Imagen"/>
+          </div> */}
 
         
         </div>
       </div>  
       {/* Boton devuelta a barra izquierda */}
-      <button className='block lg:hidden fixed bottom-2 right-2 bg-indigo-300 text-white rounded-full text-4xl p-3' 
+      <button className='block lg:hidden fixed bottom-2 right-2 bg-indigo-300 text-white rounded-fulzl text-4xl p-3' 
       onClick={handleSidebar}>
         {sidebar ? <RiMenuUnfoldLine/> : <RiMenuFoldLine />}
         
@@ -94,8 +96,15 @@ export default function Dashboard () {
         <div className="bg-gray-200 p-4 ">
           {/* Titulo */}
           <div>
-            <h1 className="text-3xl font-semibold pl-3 mb-20">Contenido</h1>
+            <h1 className="flex text-3xl font-semibold pl-3 mb-10">Contenido</h1>
           </div>
+          {/* <div>
+            <button className="flex">
+            < RiAddCircleLine/>
+            Añadir
+            </button>
+          </div> */}
+          {/* Resultados y Fechas */}
           <div className="flex items-center justify-between">
             <p className="p-4 text-gray-500">Se han encontrado <span className="text-indigo-500 font-bold">3</span> resultados
             </p>
@@ -104,6 +113,7 @@ export default function Dashboard () {
               <RiArrowDownSLine/>
             </p>
           </div>
+            
           {/* Informacion de Fechas */}
           <a href="/historial" className="flex flex-col md:flex-row border-2 border-transparent hover:border-indigo-400 bg-white mb-5 pl-4 rounded-2xl p-4 shadow-lg transition-all">
             {/* Titulo y texto */}
