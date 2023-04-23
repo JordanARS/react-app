@@ -1,6 +1,7 @@
 import { Route } from "react-router-dom";
 import Dashboard from "./componentes/Dashboard";
 import Form from "./componentes/Form";
+import ModalNotifi from "./componentes/ModalNotifi";
 
 
 function App() {

@@ -1,5 +1,9 @@
-import React, {useState} from "react";
+import { Modal } from "bootstrap";
+import React, {Fragment, useState} from "react";
 import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiWindyFill, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
+import ModalNotifi from "./ModalNotifi";
+import ModalAddContent from "./ModalAddContent";
+
 
 export default function Dashboard () {
 
@@ -8,7 +12,11 @@ export default function Dashboard () {
   const handleSidebar = () =>{
     setSidebar(!sidebar)
   }
+  const [showModalNotifi, setShowModalNotifi] = useState(false);
+  const [showModalContent, setShowModalContent] = useState(false);
   return (
+      <Fragment>
+
     <div className='min-h-screen grid grid-col-1 lg:grid-cols-6'>
       {/* Barra Lateral Izquierda */}
       <div className={`fixed border-e border-gray-600 lg:static w-[60%] md:w-[40%] lg:w-full top-0 z-50 transition-all ${sidebar ? "-left-0":"-left-full"} h-full w-full  bg-[#0F1523] col-span-1 p-4`}>
@@ -78,10 +86,10 @@ export default function Dashboard () {
           <nav className="w-full md:w-[50%] flex justify-center md:justify-end">
             <ul className="flex items-center gap-5">
               <li>
-                <a href="/notificaciones" className="relative">
-                  <RiNotification3Line className="text-2xl text-white"/>
+                <button href="/notificaciones" className="relative">
+                  <RiNotification3Line className="text-2xl text-white" onClick={() => setShowModalNotifi(true)}/>
                   <RiCheckboxBlankCircleFill className="absolute right-0 -top-1 text-xs text-red-500"/>
-                </a>
+                </button>
               </li>   
               <li>
                 <a href="/perfiles" className="flex items-center gap-1 text-white">
@@ -98,7 +106,7 @@ export default function Dashboard () {
           <div className="flex items-center justify-between ">
             <h1 className="flex text-white text-3xl font-semibold pl-3">Contenido</h1>
             {/* Añadir nuevo contenido */}
-            <button className="flex items-center gap-1 text-white px-6 py-2 rounded-xl bg-[#1F2937] hover:bg-slate-600 hover:font-bold transition-colors">
+            <button className="flex items-center gap-1 text-white px-6 py-2 rounded-xl bg-[#1F2937] hover:bg-slate-600 hover:font-bold transition-colors" onClick={() => setShowModalContent(true)}>
             < RiAddCircleLine/>
             Añadir
             </button>
@@ -182,14 +190,36 @@ export default function Dashboard () {
                 <p className="text-gray-200">Hace 2 días</p>
               </div>
             </div>
-
-
-          
-
-
         </div>
       </div>
+      
     </div>
+    {/* Modal de Notificaciones */}
+      <ModalNotifi isVisible={showModalNotifi} onClose={() => setShowModalNotifi(false  )}>
+        <div className="p-8">
+          <h1 className="text-xl mb-5 border-b border-gray-400">Alertas Detectadas</h1>
+          <h3>Cosas</h3>
+        </div>
+      </ModalNotifi>
+      {/* Modal Añadir Nuevo Contenido */}
+      <ModalAddContent isVisible={showModalContent} onClose={() => setShowModalContent(false  )}>
+      <header className="p-5">
+          <h1 className="text-xl font-bold mb-5 border-b border-gray-400">Añadir Nuevo Contenido</h1>
+          <div className="flex justify-normal mt-4">
+            <input placeholder="Ingresa un titulo" class="placeholder-gray-900 outline-none bg-slate-300 w-[50%] border-b border-gray-200 hover:shadow-md"></input>
+          </div>
+          <div>
+            <input placeholder="Ingresa la descripción necesaria" class="placeholder-gray-900 outline-none bg-slate-300 mt-7 w-full border-b border-gray-200 hover:shadow-md"></input>
+          </div>
+          <div className="flex justify-end mt-5">
+          <button className="flex items-center gap-1 text-white px-6 py-2 rounded-xl bg-[#606873] hover:bg-slate-600 hover:font-bold transition-colors">
+            < RiAddCircleLine/>
+            Añadir
+            </button>
+          </div>
+        </header>
+      </ModalAddContent>
+      </Fragment>
   )
 }
 
