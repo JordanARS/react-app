@@ -3,6 +3,8 @@ import React, {Fragment, useState} from "react";
 import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiWindyFill, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
 import ModalNotifi from "./ModalNotifi";
 import ModalAddContent from "./ModalAddContent";
+import {Link} from 'react-router-dom'
+
 
 
 export default function Dashboard () {
@@ -32,28 +34,28 @@ export default function Dashboard () {
           <nav>
             <ul>
               <li>
-                <a href='/dashboard' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
+                <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiDashboardLine />
                   Dashboard
                 </a>
               </li>
               <li>
-                <a href='/perfil' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
+                <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiUser6Line />
                   Perfil
                 </a>
               </li>
               <li>
-                <a href='/historial' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
+                <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiChatHistoryLine />
                   Historial
                 </a>
               </li>
               <li>
-              <a href='/form' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
+              <Link to={"/login"} className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiLogoutBoxLine />
                   Salir
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>

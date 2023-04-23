@@ -1,5 +1,6 @@
 import * as React from 'react';
-
+import {Link} from 'react-router-dom'
+import Sesion from '../auth/Sesion'
 
 export default function Form(){
     return(
@@ -26,7 +27,7 @@ export default function Form(){
                 </div>
                 <div className='mt-6 flex flex-col gap-y-4'>
                     
-                    <button className='active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-2 bg-indigo-200 font-semibold text-lg rounded-xl'>Ingresar</button>
+                    <Link className='active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all py-2 bg-indigo-200 font-semibold text-lg text-center rounded-xl' to={"/contenido"}>Ingresar</Link>
                     
 
                 </div>
