@@ -14,12 +14,12 @@ export default function Form(){
             <div className='mt-5'>
                 <div>
                     <label className='text-lg text-white font-medium'>Correo</label>
-                    <input className='w-full border border-gray-500 rounded-xl p-3 mt-1 bg-[#1D2432]' placeholder='Ingrese su correo'/>
+                    <input className='w-full border text-white border-gray-500 rounded-xl p-3 mt-1 bg-[#1D2432]' placeholder='Ingrese su correo'/>
                 </div>
                 
                 <div className="mt-4">
                     <label className='text-lg text-white font-medium'>Contraseña</label>
-                    <input className='w-full border border-gray-500 rounded-xl p-3 mt-1 bg-[#1D2432]' placeholder='Ingrese su contraseña' type='password'/>
+                    <input className='w-full border border-gray-500 text-white rounded-xl p-3 mt-1 bg-[#1D2432]' placeholder='Ingrese su contraseña' type='password'/>
                 </div>
                 <div className='mt-8 flex justify-center items-center'>
                     
