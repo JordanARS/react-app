@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom'
-import Sesion from '../auth/Sesion'
 
 export default function Form(){
     return(

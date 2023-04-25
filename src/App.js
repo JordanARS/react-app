@@ -11,7 +11,7 @@ function App() {
           <Form />
         </div>       
           <div className="hidden relative lg:flex w-1/2 h-full items-center justify-center bg-[#F7F7F7]">
-          <img src="/FondoNegro.webp" className="h-screen"></img>
+          <img src="/FondoNegro.webp" className="h-screen" alt="Imagen de Fondo"></img>
         </div>
       </div>  
 

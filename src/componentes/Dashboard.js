@@ -1,6 +1,5 @@
-import { Modal } from "bootstrap";
 import React, {Fragment, useState} from "react";
-import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiWindyFill, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
+import { RiDashboardLine, RiUser6Line, RiLogoutBoxLine, RiChatHistoryLine, RiMenuFoldLine, RiMenuUnfoldLine, RiNotification3Line, RiArrowDownSLine, RiSearch2Line, RiCheckboxBlankCircleFill, RiAddCircleLine } from "react-icons/ri";
 import ModalNotifi from "./ModalNotifi";
 import ModalAddContent from "./ModalAddContent";
 import {Link} from 'react-router-dom'
