@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Dashboard from './componentes/Dashboard';
+import Perfil from './componentes/Perfil';
 
 
 const router = createBrowserRouter([
@@ -22,12 +23,11 @@ const router = createBrowserRouter([
     path: '/contenido',
     element: <Dashboard />,
     errorElement: <h1>Error</h1>,
-    children:[
-      {
-        path: '/contenido/:contenidoid',
-        element: <h1>g</h1>,
-      },
-    ],
+  },
+  {
+    path: '/perfil',
+    element: <Perfil />,
+    errorElement: <h1>Error</h1>,
   },
 ]);
 

@@ -39,7 +39,7 @@ export default function Dashboard () {
                 </a>
               </li>
               <li>
-                <a href='/contenido' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
+                <a href='/perfil' className='flex items-center gap-2 hover:bg-[#1F2937] transition-colors mt-5 p-3 hover:font-semibold rounded-lg text-lg text-white'>
                   <RiUser6Line />
                   Perfil
                 </a>
