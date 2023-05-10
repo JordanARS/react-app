@@ -10,8 +10,7 @@ import {
   RiArrowDownSLine,
   RiSearch2Line,
   RiCheckboxBlankCircleFill,
-  RiEditBoxLine,
-  RiDeleteBin6Line,
+  RiCheckboxFill,
 } from "react-icons/ri";
 import ModalNotifi from "./ModalNotifi";
 import { useTable, usePagination } from "react-table";
@@ -26,121 +25,31 @@ function Perfil() {
     () => [
       {
         descripcion: "Gabriel García Márquez",
-        gravedad: "Cien años de soledad",
+        gravedad: "Descrp",
         estado: "1967",
         fecha: "7/05/2023",
       },   
       {
         descripcion: "Mario Vargas Llosa",
-        gravedad: "La ciudad y los perros",
+        gravedad: "Descrp",
         estado: "1963",
         fecha: "7/05/2023",
       },
       {
         descripcion: "Julio Cortázar",
-        gravedad: "Rayuela",
+        gravedad: "Descrp",
         estado: "1963",
         fecha: "7/05/2023",
       },
       {
         descripcion: "Isabel Allende",
-        gravedad: "La casa de los espíritus",
+        gravedad: "Descrp",
         estado: "1982",
         fecha: "7/05/2023",
       },
       {
         descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
-        estado: "1944",
-        fecha: "7/05/2023",
-      },
-      {
-        descripcion: "Jorge Luis Borges",
-        gravedad: "Ficciones",
+        gravedad: "Descrp",
         estado: "1944",
         fecha: "7/05/2023",
       },
@@ -155,19 +64,19 @@ function Perfil() {
         accessor: "descripcion",
       },
       {
-        Header: "Gravedad",
+        Header: "Algo",
         accessor: "gravedad",
       },
       {
-        Header: "Estado",
+        Header: "Fecha",
         accessor: "estado",
       },
       {
-        Header: "Fecha",
+        Header: "Nivel de Gravedad",
         accessor: "fecha",
       },
       {
-        Header: "Editar",
+        Header: "Estado",
         accessor: "editar",
       },
     ],
@@ -191,7 +100,15 @@ function Perfil() {
     state: { pageIndex }
   } = tableInstance;
 
-  const memoizedColumns = useMemo(() => columns, [columns]);
+  const [hiddenButtons, setHiddenButtons] = useState([]);
+
+  const toggleButtonVisibility = (rowIndex) => {
+    setHiddenButtons((hiddenButtons) => {
+      const newHiddenButtons = [...hiddenButtons];
+      newHiddenButtons[rowIndex] = !newHiddenButtons[rowIndex];
+      return newHiddenButtons;
+    });
+  };
 
   /* Parte izquierda del sidebar */
   const [sidebar, setSidebar] = useState(false);
@@ -318,69 +235,87 @@ function Perfil() {
  {/* Tabla de Datos de Fecha, y esas cosas*/}
 
         <>
-            <div className="bg-[#111827] shadow-md rounded">
-          <table {...getTableProps()} className="min-w-max w-full table-auto">
-            <thead>
-              {headerGroups.map(headerGroup => (
-                <tr {...headerGroup.getHeaderGroupProps()} className="bg-gray-800 text-gray-100 text-xl leading-normal">
-                  {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps()} className="py-5 px-6 text-left">{column.render("Header")}</th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()} className="text-gray-200 text-lg font-light">
-              {page.map((row, i) => {
-                prepareRow(row);
-                return (
-                  <tr {...row.getRowProps()} className="border-b border-gray-700 hover:bg-[#1F2934] hover:font-semibold hover:border-gray-400">
-                    {row.cells.map((cell, j) => {
-                      if (j === row.cells.length - 1) {
-                        return (
-                          <td key={j} className="flex justify-evenly py-4 px-6 text-left whitespace-nowrap">
-                            <button className="text-green-200 hover:scale-125 transition-all">
-                              <RiEditBoxLine />
-                            </button>
-                            <button className="text-red-400 hover:scale-125 transition-all">
-                              <RiDeleteBin6Line />
-                            </button>
-                            
-                          </td>
-                        );
-                      } else {
-                        return (
-                          <td key={j} className="py-3 px-6 text-left whitespace-nowrap max-w-xs overflow-hidden">{cell.render("Cell")}</td>
-                        );
-                      }
-                    })}
+          <div className="bg-[#111827] shadow-md rounded">
+            <table {...getTableProps()} className="min-w-max w-full table-auto">
+              <thead>
+                {headerGroups.map(headerGroup => (
+                  <tr {...headerGroup.getHeaderGroupProps()} className="bg-gray-800 text-gray-100 text-xl leading-normal">
+                    {headerGroup.headers.map(column => (
+                      <th {...column.getHeaderProps()} className="py-5 px-6 text-left">{column.render("Header")}</th>
+                    ))}
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()} className="text-gray-200 text-lg font-light">
+                {page.map((row, i) => {
+                  prepareRow(row);
+                  return (
+                    <tr {...row.getRowProps()} className="border-b border-gray-700 hover:bg-[#1F2934] hover:font-semibold hover:border-gray-400">
+                      {row.cells.map((cell, j) => {
+                        if (j === row.cells.length - 2) {
+                          return (
+                            <td
+                              key={j}
+                              className="py-3 px-6 text-left whitespace-nowrap max-w-xs overflow-hidden"
+                            >
+                              <select className="bg-gray-800 border-gray-800 text-gray-200 py-2 px-4 w-full">
+                                <option>C murio</option>
+                                <option>Sobrebivio</option>
+                                <option>Casi c nos va :(</option>
+                              </select>
+                            </td>
+                          );
+                        } else if (j === row.cells.length - 1) {
+                          return (
+                            <td
+                              key={j}
+                              className="flex justify-evenly py-4 px-6 text-left whitespace-nowrap"
+                            >
+                              <button
+                                className={`text-green-200 text-4xl hover:scale-125 transition-all ${
+                                  hiddenButtons[i] ? "hidden" : ""
+                                }`}
+                                onClick={() => toggleButtonVisibility(i)}
+                              >
+                                <RiCheckboxFill />
+                              </button>
+                            </td>
+                          );
+                        } else {
+                          return (
+                            <td key={j} className="py-3 px-6 text-left whitespace-nowrap max-w-xs overflow-hidden">{cell.render("Cell")}</td>
+                          );
+                        }
+                      })}
+                    </tr>                 
+                  );
+                })}
+              </tbody>
+            </table> 
 
-{/* Paginado */}
+            {/* Paginado */}
 
-          <div className="pagination flex justify-center p-4">
-            <button onClick={() => previousPage()} disabled={!canPreviousPage}className={`mx-1 bg-[#303d4f] text-gray-700 text-white rounded py-2 px-4 hover:scale-110 transition-all ${
-              !canPreviousPage && "opacity-50 cursor-not-allowed"
-            }`}>{'<'}</button>
-            <span className="text-white">
-              Página{' '}
-              <strong>
-                {pageIndex + 1} de {pageOptions.length}
-              </strong>{' '}
-            </span>
-            <button onClick={() => nextPage()} disabled={!canNextPage} className={`mx-1 bg-[#303d4f] text-white rounded py-2 px-4 hover:scale-110 transition-all${
-              !canNextPage && "opacity-50 cursor-not-allowed"
-            }`}>{'>'}</button>
-          </div>
-        </div>
-
+            <div className="pagination flex justify-center p-4">
+              <button onClick={() => previousPage()} disabled={!canPreviousPage}className={`mx-1 bg-[#303d4f] text-gray-700 text-white rounded py-2 px-4 hover:scale-110 transition-all ${
+                !canPreviousPage && "opacity-50 cursor-not-allowed"
+              }`}>{'<'}</button>
+              <span className="text-white">
+                Página{' '}
+                <strong>
+                  {pageIndex + 1} de {pageOptions.length}
+                </strong>{' '}
+              </span>
+              <button onClick={() => nextPage()} disabled={!canNextPage} className={`mx-1 bg-[#303d4f] text-white rounded py-2 px-4 hover:scale-110 transition-all${
+                !canNextPage && "opacity-50 cursor-not-allowed"
+              }`}>{'>'}</button>
+            </div>
+          </div> 
         </>
 
         </div>
       </div>
+
+
       {/* Modal de Notificaciones */}
       <ModalNotifi
         isVisible={showModalNotifi}
